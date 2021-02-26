@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" sizeclass="18" type="collection">
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="On Hold Reason" max_length="40" name="u_reason" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Awaiting Approval" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="Waiting Requester Info" sequence="1" value="2"/>
+                <element inactive_on_update="false" label="Customer Action Required" sequence="2" value="3"/>
+                <element inactive_on_update="false" label="Awaiting Vendor" sequence="3" value="4"/>
+            </choice>
+        </element>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
